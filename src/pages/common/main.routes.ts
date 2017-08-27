@@ -1,7 +1,7 @@
 import { Routes } from "@angular/router";
 
 import { HomePage } from '../desktop/home/home';
-import { TousuPage } from '../desktop/tousu/tousu';
+import { TaskPage } from '../desktop/task/task';
 
 import { ParameterPage } from '../system/parameter/parameter';
 import { UserInfoPage } from '../system/userInfo/userInfo';
@@ -18,8 +18,8 @@ export const MainRoutes: Routes = [ // Routes类型的数组
         path     : 'desktop/home',//首页
         component: HomePage
     },{
-        path     : 'desktop/tousu',//投诉与建议
-        component: TousuPage
+        path     : 'desktop/task',//任务管理
+        component: TaskPage
     },{
         path     : 'system/parameter',//参数管理
         component: ParameterPage
