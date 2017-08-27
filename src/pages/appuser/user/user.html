@@ -35,16 +35,17 @@
                 <th>序号</th>
                 <th>uid</th>
                 <th>昵称</th>
-                <th>姓名</th>
+                <th>登录账户</th>
                 <th>手机</th>
-                <th>积分</th>
-                <th>影子积分</th>
-                <th>余额</th>
-                <th>速通宝</th>
-                <th>VIP</th>
+                <th>星级</th>
+                <th>等级</th>
+                <th>股权币</th>
+                <th>支付币</th>
+                <th>交易币</th>
+                <th>激活码个数</th>
+                <th>注册码个数</th>
                 <th>注册时间</th>
                 <th>状态</th>
-                <th>信用星</th>
                 <th>操作</th>
             </tr>
         </thead>
@@ -53,22 +54,22 @@
                 <td>{{(i+1)}}</td>
                 <td>{{item.uid}}</td>
                 <td>{{item.nickName}}</td>
-                <td>{{item.name}}</td>
+                <td>{{item.loginName}}</td>
                 <td>{{item.mobile}}</td>
-                <td>{{item.score}}</td>
-                <td>{{item.shadowScore}}</td>
-                <td>{{item.balance}}</td>
-                <td>{{item.virtualCoin}}</td>
-                <td>{{item.userType==10?"是":"否"}}</td>
-                <td>{{item.createTime}}</td>
-                <td>{{item.state==10?"正常":item.state==20?"禁用":"删除"}}</td>
-                <td>{{item.credit}}</td>
+                <td>{{item.gradeName}}</td>
+                <td>{{item.cardGradeName}}</td>
+                <td>{{item.equityAmt}}</td>
+                <td>{{item.payAmt}}</td>
+                <td>{{item.tradeAmt}}</td>
+                <td>{{item.activeCodeNo}}</td>
+                <td>{{item.registerCodeNo}}</td>
+                <td>{{utils.formatDate(item.createTime,'yyyy-MM-dd HH:mm:ss')}}</td>
+                <td>{{item.state!=10?"正常":item.state==20?"禁用":"删除"}}</td>
                 <td>
-                  <button type="button" *ngIf="item.state==20||item.state==10"(click)="showEditName(item)" class="btn btn-info btn-xs">编辑姓名</button>
-                  <button type='button' *ngIf="item.state==10" (click)='disable(item)' class='btn btn-danger btn-xs'>禁用</button>
-                  <button type='button' *ngIf="item.state==20" (click)='disable(item)' class='btn btn-info btn-xs'>启用</button>
-                  <button type="button" *ngIf="item.state==20||item.state==10"(click)="deleteItem(item)" class="btn btn-danger btn-xs">删除</button>
-                  <button type="button" *ngIf="item.state==20||item.state==10"(click)="bankCard(item)" class="btn btn-info btn-xs">银行卡</button>
+                  <button type="button" *ngIf="item.state!=5"(click)="showEditName(item)" class="btn btn-info btn-xs">编辑姓名</button>
+                  <button type='button' *ngIf="item.state!=5" (click)='disable(item)' class='btn btn-danger btn-xs'>禁用</button>
+                  <button type='button' *ngIf="item.state==5" (click)='disable(item)' class='btn btn-info btn-xs'>启用</button>
+                  <button type="button" *ngIf="item.state!=5"(click)="deleteItem(item)" class="btn btn-danger btn-xs">删除</button>
                 </td>
             </tr>
         </tbody>

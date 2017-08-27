@@ -1,7 +1,7 @@
 
 <!--搜索区域-->
 <div class="search-box">
-      
+
 </div>
 
 <!--按钮区域-->
@@ -26,13 +26,13 @@
         </thead>
         <tbody>
             <tr *ngFor="let item of httpService.items">
-                <td>{{item.paraName}}</td>
-                <td>{{item.paraCnName}}</td>
-                <td>{{item.paraValue}}</td>
+                <td><input type="hidden" value="{{item.id}}"/>{{item.name}}</td>
+                <td>{{item.title}}</td>
+                <td>{{item.value}}</td>
                 <td>{{utils.formatDate(item.createTime,'yyyy-MM-dd HH:mm:ss')}}</td>
                 <td>{{utils.formatDate(item.updateTime,'yyyy-MM-dd HH:mm:ss')}}</td>
                 <td>{{item.remark}}</td>
-                <td>{{utils.formatState(item.state)}}</td>
+                <td>{{utils.formatState(item.status)}}</td>
                 <td>
                     <button type="button" (click)="showEditPanel(item)" class="btn btn-info btn-xs">编辑</button>
                     <button type="button" (click)="deleteItem(item)" class="btn btn-danger btn-xs">删除</button>
@@ -66,19 +66,25 @@
     <div class="form-group">
         <label class="col-sm-4 control-label"><span class="text-danger">*</span>&nbsp;参数key</label>
         <div class="col-sm-8">
-            <input type="text" class="form-control" id="paraName" [(ngModel)]="subData.paraName" placeholder="请输入参数key"/>
+            <input type="text" class="form-control" id="name" [(ngModel)]="subData.name" placeholder="请输入参数key"/>
         </div>
     </div>
     <div class="form-group">
         <label class="col-sm-4 control-label"><span class="text-danger">*</span>&nbsp;参数值</label>
         <div class="col-sm-8">
-            <input type="text" class="form-control" id="paraValue" [(ngModel)]="subData.paraValue" placeholder="请输入参数值"/>
+            <input type="text" class="form-control" id="value" [(ngModel)]="subData.value" placeholder="请输入参数值"/>
         </div>
     </div>
     <div class="form-group">
         <label class="col-sm-4 control-label"><span class="text-danger">*</span>&nbsp;参数中文名</label>
         <div class="col-sm-8">
-            <input type="text" class="form-control" id="paraCnName" [(ngModel)]="subData.paraCnName" placeholder="请输入参数中文名"/>
+            <input type="text" class="form-control" id="title" [(ngModel)]="subData.title" placeholder="请输入参数中文名"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-4 control-label"><span class="text-danger">*</span>&nbsp;分组类型</label>
+        <div class="col-sm-8">
+            <input type="text" class="form-control" id="groupType" [(ngModel)]="subData.groupType" placeholder="请输入参数中文名"/>
         </div>
     </div>
     <div class="form-group">
@@ -91,10 +97,10 @@
         <label class="col-sm-4 control-label">&nbsp;状态</label>
         <div class="col-sm-8">
             <label class="radio-inline">
-                <input type="radio" value="10" [(ngModel)]="subData.state">正常
+                <input type="radio" value="1" [(ngModel)]="subData.status">正常
             </label>
             <label class="radio-inline">
-                <input type="radio" value="20" [(ngModel)]="subData.state">禁用
+                <input type="radio" value="2" [(ngModel)]="subData.status">禁用
             </label>
         </div>
     </div>

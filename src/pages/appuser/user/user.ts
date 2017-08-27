@@ -19,7 +19,7 @@ export class UserPage {
       nickName:"",
       name:"",
       state:"",
-      credit:""
+      cardGrade:""
     };
     upUser:any={};
     editDate:any={};
@@ -37,7 +37,7 @@ export class UserPage {
     */
     loadData(){
         this.httpService.pagination({
-            url:'/appUser/userTab',
+            url:'/muser/list',
             data:this.find
         });
     }
@@ -56,6 +56,7 @@ export class UserPage {
           url:'/appUser/upUserState',
           data:this.upUser
       }).subscribe((data:any)=>{
+          alert(data.code); 
           if(data.code==='0000'){
               //修改成功
              this.loadData();

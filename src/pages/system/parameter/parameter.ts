@@ -38,11 +38,12 @@ export class ParameterPage {
     */
     showAddPanel(){
         this.subData = {
-            paraName: '',
-            paraValue: '',
-            paraCnName: '',
+            name: '',
+            value: '',
+            title:'',
+            groupType: '',
             remark: '',
-            state: '10'
+            status: '1'
         };
         layer.open({
             title: "添加参数",
@@ -150,19 +151,19 @@ export class ParameterPage {
     }
 
     validator(){
-        if(Utils.isEmpty(this.subData.paraName)){
-            layer.tips('参数key不能为空', '#paraName',{tips: 1});
-            $("#paraName").focus();
+        if(Utils.isEmpty(this.subData.name)){
+            layer.tips('参数key不能为空', '#name',{tips: 1});
+            $("#name").focus();
             return false;
         }
-        if(Utils.isEmpty(this.subData.paraValue)){
-            layer.tips('参数值不能为空', '#paraValue',{tips: 1});
-            $("#paraValue").focus();
+        if(Utils.isEmpty(this.subData.value)){
+            layer.tips('参数值不能为空', '#value',{tips: 1});
+            $("#value").focus();
             return false;
         }
-        if(Utils.isEmpty(this.subData.paraCnName)){
-            layer.tips('参数中文名不能为空', '#paraCnName',{tips: 1});
-            $("#paraCnName").focus();
+        if(Utils.isEmpty(this.subData.title)){
+            layer.tips('参数中文名不能为空', '#title',{tips: 1});
+            $("#title").focus();
             return false;
         }
         return true;
