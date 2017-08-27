@@ -9,6 +9,8 @@ import { RolePage } from '../system/role/role';
 import { UpdatePwPage } from '../system/updatePw/updatePw';
 import { UserPage } from '../appuser/user/user';
 import { BankCardPage } from '../appuser/bankcard/bankcard';
+import { TradeOrderPage } from '../appuser/tradeOrder/tradeOrder';
+import { UserSignPage } from '../appuser/userSign/userSign';
 
 export const MainRoutes: Routes = [ // Routes类型的数组
     {
@@ -38,6 +40,12 @@ export const MainRoutes: Routes = [ // Routes类型的数组
     },{
         path     : 'appuser/bankcard',//银行卡管理
         component: BankCardPage
+    },{
+        path     : 'appuser/tradeOrder',
+        component: TradeOrderPage
+    },{
+        path     : 'appuser/userSign',
+        component: UserSignPage
     },{
         path     : '**',
         component: HomePage
