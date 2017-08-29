@@ -13,7 +13,7 @@ declare var layer: any;//layer对象
 @Injectable()
 export class Utils {
 
-    static APP_SERVE_URL = 'http://127.0.0.1:8080/web';//请求路径 dev环境
+    static APP_SERVE_URL = 'http://127.0.0.1:8090/web';//请求路径 dev环境
     // static APP_SERVE_URL = '/api';//请求路径 prod环境
     static DEFAULT_AVATAR = '/assets/images/avatar.png';//用户默认头像
     static FILE_SERVE_URL = 'http://dev.sutongbao.file.yb.com/';//文件服务器访问路径

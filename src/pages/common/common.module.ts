@@ -19,6 +19,7 @@ import { UpdatePwPage } from '../system/updatePw/updatePw';
 //用户管理
 import { UserPage } from '../appuser/user/user';
 import { BankCardPage } from '../appuser/bankcard/bankcard';
+import { WalletOrderPage } from '../appuser/walletOrder/walletOrder';
 
 @NgModule({
     declarations: [
@@ -31,7 +32,8 @@ import { BankCardPage } from '../appuser/bankcard/bankcard';
         UpdatePwPage,
         TousuPage,
         UserPage,
-        BankCardPage
+        BankCardPage,
+        WalletOrderPage,
     ],
     imports: [
         BrowserModule,
