@@ -44,6 +44,7 @@ export const MainRoutes: Routes = [ // Routes类型的数组
     },{
         path     : 'appuser/walletOrder',//提币管理
         component: WalletOrderPage
+    },{
         path     : 'appuser/tradeOrder',
         component: TradeOrderPage
     },{
