@@ -18,7 +18,7 @@ export class UserPage {
       mobile:"",
       nickName:"",
       name:"",
-      state:"",
+      status:"",
       cardGrade:""
     };
     upUser:any={};
@@ -56,7 +56,7 @@ export class UserPage {
           url:'/appUser/upUserState',
           data:this.upUser
       }).subscribe((data:any)=>{
-          alert(data.code); 
+          alert(data.code);
           if(data.code==='0000'){
               //修改成功
              this.loadData();

@@ -1,7 +1,7 @@
 import { Routes } from "@angular/router";
 
 import { HomePage } from '../desktop/home/home';
-import { TousuPage } from '../desktop/tousu/tousu';
+import { TaskPage } from '../desktop/task/task';
 
 import { ParameterPage } from '../system/parameter/parameter';
 import { UserInfoPage } from '../system/userInfo/userInfo';
@@ -10,7 +10,8 @@ import { UpdatePwPage } from '../system/updatePw/updatePw';
 import { UserPage } from '../appuser/user/user';
 import { BankCardPage } from '../appuser/bankcard/bankcard';
 import { WalletOrderPage } from '../appuser/walletOrder/walletOrder';
-
+import { TradeOrderPage } from '../appuser/tradeOrder/tradeOrder';
+import { UserSignPage } from '../appuser/userSign/userSign';
 
 export const MainRoutes: Routes = [ // Routes类型的数组
     {
@@ -20,8 +21,8 @@ export const MainRoutes: Routes = [ // Routes类型的数组
         path     : 'desktop/home',//首页
         component: HomePage
     },{
-        path     : 'desktop/tousu',//投诉与建议
-        component: TousuPage
+        path     : 'desktop/task',//任务管理
+        component: TaskPage
     },{
         path     : 'system/parameter',//参数管理
         component: ParameterPage
@@ -43,6 +44,11 @@ export const MainRoutes: Routes = [ // Routes类型的数组
     },{
         path     : 'appuser/walletOrder',//提币管理
         component: WalletOrderPage
+        path     : 'appuser/tradeOrder',
+        component: TradeOrderPage
+    },{
+        path     : 'appuser/userSign',
+        component: UserSignPage
     },{
         path     : '**',
         component: HomePage

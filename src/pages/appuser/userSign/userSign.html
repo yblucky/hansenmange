@@ -1,7 +1,7 @@
 
 <!--搜索区域-->
 <div class="search-box">
-      uid: <input [(ngModel)]="find.uid" />
+      <!-- uid: <input [(ngModel)]="find.uid" />
       手机:<input [(ngModel)]="find.mobile" />
       昵称:<input [(ngModel)]="find.nickName"/>
       姓名:<input [(ngModel)]="find.name"/>
@@ -21,7 +21,7 @@
             <option  value = "4">四星</option>
             <option  value = "5">五星</option>
           </select>
-      <button type="button" class="btn btn-primary" (click)='loadData()'>搜索</button>
+      <button type="button" class="btn btn-primary" (click)='loadData()'>搜索</button> -->
 </div>
 
 <!--按钮区域-->
@@ -35,44 +35,25 @@
         <thead>
             <tr class="active">
                 <th>序号</th>
-                <th>uid</th>
-                <th>昵称</th>
-                <th>登录账户</th>
-                <th>手机</th>
-                <th>星级</th>
-                <th>等级</th>
+                <th>用户</th>
+                <th>签到金额</th>
                 <th>股权币</th>
                 <th>支付币</th>
                 <th>交易币</th>
-                <th>激活码个数</th>
-                <th>注册码个数</th>
-                <th>注册时间</th>
+                <th>签到时间</th>
                 <th>状态</th>
-                <th>操作</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let item of httpService.items; let i = index">
                 <td>{{(i+1)}}</td>
-                <td>{{item.uid}}</td>
                 <td>{{item.nickName}}</td>
-                <td>{{item.loginName}}</td>
-                <td>{{item.phone}}</td>
-                <td>{{item.gradeName}}</td>
-                <td>{{item.cardGradeName}}</td>
+                <td>{{item.amt}}</td> 
                 <td>{{item.equityAmt}}</td>
                 <td>{{item.payAmt}}</td>
                 <td>{{item.tradeAmt}}</td>
-                <td>{{item.activeCodeNo}}</td>
-                <td>{{item.registerCodeNo}}</td>
                 <td>{{utils.formatDate(item.createTime,'yyyy-MM-dd HH:mm:ss')}}</td>
                 <td>{{item.statusName}}</td>
-                <td>
-                  <button type="button" *ngIf="item.state!=5"(click)="showEditName(item)" class="btn btn-info btn-xs">编辑姓名</button>
-                  <button type='button' *ngIf="item.state!=5" (click)='disable(item)' class='btn btn-danger btn-xs'>禁用</button>
-                  <button type='button' *ngIf="item.state==5" (click)='disable(item)' class='btn btn-info btn-xs'>启用</button>
-                  <button type="button" *ngIf="item.state!=5"(click)="deleteItem(item)" class="btn btn-danger btn-xs">删除</button>
-                </td>
             </tr>
         </tbody>
     </table>

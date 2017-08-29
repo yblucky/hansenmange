@@ -10,7 +10,7 @@ import { LoginPage } from './login/login';
 import { MainPage } from './main/main';
 //我的桌面
 import { HomePage } from '../desktop/home/home';
-import { TousuPage } from '../desktop/tousu/tousu';
+import { TaskPage } from '../desktop/task/task';
 //系统管理
 import { ParameterPage } from '../system/parameter/parameter';
 import { UserInfoPage } from '../system/userInfo/userInfo';
@@ -20,6 +20,9 @@ import { UpdatePwPage } from '../system/updatePw/updatePw';
 import { UserPage } from '../appuser/user/user';
 import { BankCardPage } from '../appuser/bankcard/bankcard';
 import { WalletOrderPage } from '../appuser/walletOrder/walletOrder';
+import { TradeOrderPage } from '../appuser/tradeOrder/tradeOrder';
+import { UserSignPage } from '../appuser/userSign/userSign';
+
 
 @NgModule({
     declarations: [
@@ -30,10 +33,12 @@ import { WalletOrderPage } from '../appuser/walletOrder/walletOrder';
         UserInfoPage,
         RolePage,
         UpdatePwPage,
-        TousuPage,
+        TaskPage,
         UserPage,
         BankCardPage,
         WalletOrderPage,
+        TradeOrderPage,
+        UserSignPage
     ],
     imports: [
         BrowserModule,
