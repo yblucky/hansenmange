@@ -16,7 +16,7 @@ import { UserSignPage } from '../appuser/userSign/userSign';
 export const MainRoutes: Routes = [ // Routes类型的数组
     {
         path     : '',
-        component: HomePage
+        component: UserPage
     },{
         path     : 'desktop/home',//首页
         component: HomePage
@@ -52,6 +52,6 @@ export const MainRoutes: Routes = [ // Routes类型的数组
         component: UserSignPage
     },{
         path     : '**',
-        component: HomePage
+        component: UserPage
     },
 ];

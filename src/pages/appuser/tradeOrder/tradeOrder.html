@@ -40,9 +40,9 @@
                 <th>交易金额</th>
                 <th>手机</th>
                 <th>星级</th>
-                <th>股权币</th>
-                <th>支付币</th>
-                <th>交易币</th>
+                <th>股权币比例</th>
+                <th>支付币比例</th>
+                <th>交易币比例</th>
                 <th>保单时间</th>
                 <th>状态</th>
             </tr>
@@ -55,11 +55,11 @@
                 <td>{{item.amt}}</td>
                 <td>{{item.phone}}</td>
                 <td>{{item.cardGradeName}}</td>
-                <td>{{item.equityAmt}}</td>
-                <td>{{item.payAmt}}</td>
-                <td>{{item.tradeAmt}}</td>
+                <td>{{item.equityAmtScale}}</td>
+                <td>{{item.payAmtScale}}</td>
+                <td>{{item.tradeAmtScale}}</td>
                 <td>{{utils.formatDate(item.createTime,'yyyy-MM-dd HH:mm:ss')}}</td>
-                <td>{{item.statusName}}</td> 
+                <td>{{item.statusName}}</td>
             </tr>
         </tbody>
     </table>
