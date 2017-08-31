@@ -22,7 +22,7 @@
                 <th>序号</th>
                 <th>任务标题</th>
                 <th>任务描述</th>
-                <th>完成任务可获取奖励次数</th>
+                <!-- <th>完成任务可获取奖励次数</th> -->
                 <th>任务链接</th>
                 <th>任务类型</th>
                 <th>创建时间</th>
@@ -35,13 +35,14 @@
                 <td>{{(i+1)}}</td>
                 <td>{{item.name}}</td>
                 <td>{{item.discription}}</td>
-                <td>{{item.rewardNo}}</td>
+                <!-- <td>{{item.rewardNo}}</td> -->
                 <td>{{item.link}}</td>
                 <td>{{item.taskType}}</td>
                 <td>{{utils.formatDate(item.createTime,'yyyy-MM-dd HH:mm:ss')}}</td>
-                <td>{{item.status}}</td>
+                <td>{{item.status == 2 ? '正常' : '已失效'}}</td>
                 <td>
-                    <button type="button" (click)="showEditPanel(item)" class="btn btn-info btn-xs">编辑</button>
+                    <button type="button" *ngIf="item.status==1" (click)="showEditPanel(item)" class="btn btn-info btn-xs">编辑</button>
+                    <button type="button" *ngIf="item.status!=0"(click)="showDelPanel(item)" class="btn btn-info btn-xs">删除</button>
                 </td>
             </tr>
         </tbody>
@@ -82,12 +83,12 @@
           <input type="text" class="form-control" id="discription" [(ngModel)]="subData.discription" placeholder="请输入任务描述"/>
       </div>
   </div>
-  <div class="form-group">
+  <!-- <div class="form-group">
       <label class="col-sm-4 control-label"><span class="text-danger">*</span>&nbsp;完成任务可获取奖励次数</label>
       <div class="col-sm-8">
           <input type="text" class="form-control" id="rewardNo" [(ngModel)]="subData.rewardNo" placeholder="请输入完成任务可获取奖励次数"/>
       </div>
-  </div>
+  </div> -->
   <div class="form-group">
       <label class="col-sm-4 control-label"><span class="text-danger">*</span>&nbsp;任务链接</label>
       <div class="col-sm-8">
@@ -111,7 +112,7 @@
           <textarea class="form-control" id="remark" [(ngModel)]="subData.remark" placeholder="请输入参数描述" rows="3"></textarea>
       </div>
   </div>
-  <div class="form-group">
+  <!-- <div class="form-group">
       <label class="col-sm-4 control-label">&nbsp;状态</label>
       <div class="col-sm-8">
           <label class="radio-inline">
@@ -124,5 +125,5 @@
               <input type="radio" value="3" [(ngModel)]="subData.status">任务已失效
           </label>
       </div>
-  </div>
+  </div> -->
 </div>

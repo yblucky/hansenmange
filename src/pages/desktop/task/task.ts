@@ -5,7 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 
 declare var $: any;
 declare var layer: any;
-var paraPage: any;
+var taskPage: any;
 
 @Component({
     selector   : 'page-task',
@@ -32,7 +32,7 @@ export class TaskPage {
         });
         this.path = Utils.FILE_SERVE_URL;
         this.loadData();
-        paraPage=this;
+        taskPage=this;
     }
 
     /**
@@ -43,6 +43,34 @@ export class TaskPage {
             url:'/task/list',
             data:this.find
         });
+    }
+    //删除任务
+    showDelPanel(item:any){
+      layer.confirm('删除为不可逆操作,您确定要删除此数据吗？', {
+          btn: ['确定','取消'] //按钮
+      }, function(){
+          var upUser:any={};
+          upUser.id=item.id;
+          taskPage.httpService.post({
+              url:'/task/delete',
+              data:upUser
+          }).subscribe((data:any)=>{
+              layer.closeAll();
+              if(data.code==='0000'){
+                  //删除成功
+                 layer.msg(data.message,{
+                     icon: '1',
+                     time: 2000
+                 },function(){
+                     taskPage.loadData();
+                 });
+              }else if(data.code==='9999'){
+                  Utils.show(data.message);
+              }else{
+                  Utils.show("系统异常，请联系管理员");
+              }
+          });
+      });
     }
 
     /**
@@ -70,10 +98,10 @@ export class TaskPage {
             area: ['500px','auto'],
             content: $("#editPanel"),
             yes: function(index:number){
-                if(paraPage.validator()){
-                    paraPage.httpService.post({
+                if(taskPage.validator()){
+                    taskPage.httpService.post({
                         url:'/task/add',
-                        data:paraPage.subData
+                        data:taskPage.subData
                     }).subscribe((data:any)=>{
                         layer.closeAll();
                         if(data.code==='0000'){
@@ -82,7 +110,7 @@ export class TaskPage {
                                icon: '1',
                                time: 2000
                            },function(){
-                               paraPage.loadData();
+                               taskPage.loadData();
                            });
                         }else if(data.code==='9999'){
                             Utils.show(data.message);
@@ -113,10 +141,10 @@ export class TaskPage {
               area: ['500px','auto'],
               content: $("#editPanel"),
               yes: function(index:number){
-                  if(paraPage.validator()){
-                      paraPage.httpService.post({
+                  if(taskPage.validator()){
+                      taskPage.httpService.post({
                           url:'/task/update',
-                          data:paraPage.subData
+                          data:taskPage.subData
                       }).subscribe((data:any)=>{
                           layer.closeAll();
                           if(data.code==='0000'){
@@ -125,7 +153,7 @@ export class TaskPage {
                                  icon: '1',
                                  time: 2000
                              },function(){
-                                 paraPage.loadData();
+                                 taskPage.loadData();
                              });
                           }else if(data.code==='9999'){
                               Utils.show(data.message);
