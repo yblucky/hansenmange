@@ -1,17 +1,16 @@
 
 <!--搜索区域-->
 <div class="search-box">
-    <!-- uid: <input [(ngModel)]="find.uid" />
-    手机:<input [(ngModel)]="find.mobile" />
+    uid: <input [(ngModel)]="find.uid" />
+    <!-- 手机:<input [(ngModel)]="find.mobile" />
     昵称:<input [(ngModel)]="find.nickName"/>
-    内容:<input [(ngModel)]="find.content"/>
-    时间日期:<input [(ngModel)]="find.startTime" type="date"/>-<input [(ngModel)]="find.endTime" type="date" />
-    <button type="button" class="btn btn-primary" (click)='loadData()'>搜索</button> -->
+    时间日期:<input [(ngModel)]="find.startTime" type="date"/>-<input [(ngModel)]="find.endTime" type="date" /> -->
+    <button type="button" class="btn btn-primary" (click)='loadData()'>搜索</button>
 </div>
 
 <!--按钮区域-->
 <div class="button-box text-right">
-      <button type="button" class="btn btn-primary" (click)="showAddPanel()"><span class="fa fa-plus-circle"></span> 新增</button>
+      <button type="button" class="btn btn-primary" (click)="showAddPanel()"><span class="fa fa-plus-circle"></span>充 值</button>
 </div><!--按钮区域-->
 
 <!--数据显示区域-->
@@ -20,7 +19,6 @@
         <thead>
             <tr class="active">
                 <th>uid</th>
-                <th>手机号</th>
                 <th>昵称</th>
                 <th>币种类型</th>
                 <th>金额</th>
@@ -30,11 +28,14 @@
         </thead>
         <tbody>
             <tr *ngFor="let item of httpService.items; let i = index">
-                <td>{{item.uid}}</td>
-                <td>{{item.discription}}</td>
-                <td>{{item.rewardNo}}</td>
-                <td>{{item.link}}</td>
-                <td>{{item.taskType}}</td>
+                <td>{{item.receviceUserId}}</td>
+                <td>{{item.nickname}}</td>
+                <td>
+                  <span *ngIf="item.orderType==10">交易币管理员充值</span>
+                  <span *ngIf="item.orderType==11">支付币管理员充值</span>
+                  <span *ngIf="item.orderType==12">股权币管理员充值</span>
+                </td>
+                <td>{{item.confirmAmt}}</td>
                 <td>{{utils.formatDate(item.createTime,'yyyy-MM-dd HH:mm:ss')}}</td>
                 <td>{{item.status}}</td>
                 <td>
@@ -70,54 +71,37 @@
   <div class="form-group">
       <label class="col-sm-4 control-label"><span class="text-danger">*</span>&nbsp;会员UID</label>
       <div class="col-sm-8">
-          <input type="text" class="form-control" id="name" [(ngModel)]="subData.uid" placeholder="请输入充值会员UID"/>
+          <input type="text" class="form-control" id="uid" [(ngModel)]="subData.uid" placeholder="请输入充值会员UID"/>
       </div>
   </div>
   <div class="form-group">
       <label class="col-sm-4 control-label"><span class="text-danger">*</span>&nbsp;交易币数量</label>
       <div class="col-sm-8">
-          <input type="text" class="form-control" id="discription" [(ngModel)]="subData.tradeAmt" placeholder="请输入交易币数量"/>
+          <input type="text" class="form-control" id="tradeAmt" [(ngModel)]="subData.tradeAmt" placeholder="请输入交易币数量"/>
       </div>
   </div>
   <div class="form-group">
       <label class="col-sm-4 control-label"><span class="text-danger">*</span>&nbsp;支付币数量</label>
       <div class="col-sm-8">
-          <input type="text" class="form-control" id="rewardNo" [(ngModel)]="subData.payAmt" placeholder="请输入支付币数量"/>
+          <input type="text" class="form-control" id="payAmt" [(ngModel)]="subData.payAmt" placeholder="请输入支付币数量"/>
       </div>
   </div>
   <div class="form-group">
       <label class="col-sm-4 control-label"><span class="text-danger">*</span>&nbsp;股权币数量</label>
       <div class="col-sm-8">
-          <input type="text" class="form-control" id="link" [(ngModel)]="subData.equityAmt" placeholder="请输入股权币数量"/>
+          <input type="text" class="form-control" id="equityAmt" [(ngModel)]="subData.equityAmt" placeholder="请输入股权币数量"/>
       </div>
   </div>
   <div class="form-group">
       <label class="col-sm-4 control-label"><span class="text-danger">*</span>&nbsp;激活码数量</label>
       <div class="col-sm-8">
-          <input type="text" class="form-control" id="link" [(ngModel)]="subData.activeCodeNo" placeholder="请输入激活码数量"/>
+          <input type="text" class="form-control" id="activeCodeNo" [(ngModel)]="subData.activeCodeNo" placeholder="请输入激活码数量"/>
       </div>
   </div>
   <div class="form-group">
       <label class="col-sm-4 control-label"><span class="text-danger">*</span>&nbsp;注册码数量</label>
       <div class="col-sm-8">
-          <input type="text" class="form-control" id="link" [(ngModel)]="subData.registerCodeNo" placeholder="请输入注册码数量"/>
-      </div>
-  </div>
-  <div class="form-group">
-      <label class="col-sm-4 control-label">&nbsp;更改用户状态</label>
-      <div class="col-sm-8">
-        <label class="radio-inline">
-            <input type="radio" value="0" [(ngModel)]="subData.status">保持不变
-        </label>
-          <label class="radio-inline">
-              <input type="radio" value="3" [(ngModel)]="subData.status">激活成功
-          </label>
-          <label class="radio-inline">
-              <input type="radio" value="4" [(ngModel)]="subData.status">待激活
-          </label>
-          <label class="radio-inline">
-              <input type="radio" value="5" [(ngModel)]="subData.status">删除
-          </label>
+          <input type="text" class="form-control" id="registerCodeNo" [(ngModel)]="subData.registerCodeNo" placeholder="请输入注册码数量"/>
       </div>
   </div>
 </div>

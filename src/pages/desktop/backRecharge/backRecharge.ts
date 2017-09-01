@@ -15,10 +15,11 @@ var paraPage: any;
 export class BackRechargePage {
     find:any={
       uid:"",
-      mobile:"",
+      phone:"",
       nickName:"",
-      userName:"",
-      content:"",
+      orderType:"",
+      confirmAmt:"",
+      status:"" ,
       startTime:"",
       endTime:""
     };
@@ -40,7 +41,7 @@ export class BackRechargePage {
     */
     loadData(){
         this.httpService.pagination({
-            url:'/task/list',
+            url:'/charge/list',
             data:this.find
         });
     }
@@ -50,13 +51,12 @@ export class BackRechargePage {
     */
     showAddPanel(){
         this.subData = {
-            name: '',
-            discription: '',
-            rewardNo:'',
-            link: '',
-            taskType: '',
-            remark: '',
-            status: '1'
+            uid: '',
+            tradeAmt:0,
+            payAmt: 0,
+            equityAmt: 0,
+            activeCodeNo: 0,
+            registerCodeNo:0
         };
         layer.open({
             title: "管理员充值",
@@ -72,7 +72,7 @@ export class BackRechargePage {
             yes: function(index:number){
                 if(paraPage.validator()){
                     paraPage.httpService.post({
-                        url:'/task/add',
+                        url:'/charge/add',
                         data:paraPage.subData
                     }).subscribe((data:any)=>{
                         layer.closeAll();
@@ -102,7 +102,7 @@ export class BackRechargePage {
       showEditPanel(item:any){
           this.subData = Utils.copyObject(item);
           layer.open({
-              title: "修改任务清单",
+              title: "管理员充值",
               btn: ["保存","退出"],
               type: 1,
               closeBtn: 0,
@@ -115,7 +115,7 @@ export class BackRechargePage {
               yes: function(index:number){
                   if(paraPage.validator()){
                       paraPage.httpService.post({
-                          url:'/task/update',
+                          url:'/charge/update',
                           data:paraPage.subData
                       }).subscribe((data:any)=>{
                           layer.closeAll();
@@ -155,21 +155,21 @@ export class BackRechargePage {
 
 
     validator(){
-        if(Utils.isEmpty(this.subData.name)){
-            layer.tips('任务标题不能为空', '#name',{tips: 1});
+        if(Utils.isEmpty(this.subData.uid)){
+            layer.tips('会员uid不能为空', '#uid',{tips: 1});
             $("#name").focus();
             return false;
         }
-        if(Utils.isEmpty(this.subData.taskType)){
-            layer.tips('任务类型不能为空', '#taskType',{tips: 1});
-            $("#value").focus();
-            return false;
-        }
-        if(Utils.isEmpty(this.subData.link)){
-            layer.tips('任务链接不能为空', '#link',{tips: 1});
-            $("#title").focus();
-            return false;
-        }
+        // if(Utils.isEmpty(this.subData.taskType)){
+        //     layer.tips('任务类型不能为空', '#taskType',{tips: 1});
+        //     $("#value").focus();
+        //     return false;
+        // }
+        // if(Utils.isEmpty(this.subData.link)){
+        //     layer.tips('任务链接不能为空', '#link',{tips: 1});
+        //     $("#title").focus();
+        //     return false;
+        // }
         return true;
     }
 }
