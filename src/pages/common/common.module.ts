@@ -11,6 +11,7 @@ import { MainPage } from './main/main';
 //我的桌面
 import { HomePage } from '../desktop/home/home';
 import { TaskPage } from '../desktop/task/task';
+import { BackRechargePage } from '../desktop/backRecharge/backRecharge';
 //系统管理
 import { ParameterPage } from '../system/parameter/parameter';
 import { UserInfoPage } from '../system/userInfo/userInfo';
@@ -38,7 +39,8 @@ import { UserSignPage } from '../appuser/userSign/userSign';
         BankCardPage,
         WalletOrderPage,
         TradeOrderPage,
-        UserSignPage
+        UserSignPage,
+        BackRechargePage
     ],
     imports: [
         BrowserModule,

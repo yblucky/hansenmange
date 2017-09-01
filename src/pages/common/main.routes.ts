@@ -2,6 +2,8 @@ import { Routes } from "@angular/router";
 
 import { HomePage } from '../desktop/home/home';
 import { TaskPage } from '../desktop/task/task';
+import { BackRechargePage } from '../desktop/backRecharge/backRecharge';
+
 
 import { ParameterPage } from '../system/parameter/parameter';
 import { UserInfoPage } from '../system/userInfo/userInfo';
@@ -23,6 +25,9 @@ export const MainRoutes: Routes = [ // Routes类型的数组
     },{
         path     : 'desktop/task',//任务管理
         component: TaskPage
+    },{
+        path     : 'desktop/backRecharge',//管理后台充值
+        component: BackRechargePage
     },{
         path     : 'system/parameter',//参数管理
         component: ParameterPage
