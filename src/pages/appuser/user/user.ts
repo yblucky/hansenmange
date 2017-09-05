@@ -75,14 +75,12 @@ export class UserPage {
       }, function(){
           var upUser:any={};
           upUser.id=item.id;
-          if(item.state==10||item.state==20){
-            upUser.state=30
-          }else{
-            alert("用户状态错误");
+          if(item.status==3||item.status==4){
+            alert("用户激活或正在保单中");
             return false;
           }
           userPage.httpService.post({
-              url:'/appUser/upUserState',
+              url:'/muser/delete',
               data:upUser
           }).subscribe((data:any)=>{
               layer.closeAll();

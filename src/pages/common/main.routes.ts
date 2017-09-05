@@ -14,6 +14,7 @@ import { BankCardPage } from '../appuser/bankcard/bankcard';
 import { WalletOrderPage } from '../appuser/walletOrder/walletOrder';
 import { TradeOrderPage } from '../appuser/tradeOrder/tradeOrder';
 import { UserSignPage } from '../appuser/userSign/userSign';
+import { CoinAddressPage } from '../appuser/coinAddress/coinAddress';
 
 export const MainRoutes: Routes = [ // Routes类型的数组
     {
@@ -55,6 +56,9 @@ export const MainRoutes: Routes = [ // Routes类型的数组
     },{
         path     : 'appuser/userSign',
         component: UserSignPage
+    },{
+        path     : 'appuser/coinAddress',
+        component: CoinAddressPage
     },{
         path     : '**',
         component: UserPage

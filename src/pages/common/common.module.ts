@@ -23,6 +23,7 @@ import { BankCardPage } from '../appuser/bankcard/bankcard';
 import { WalletOrderPage } from '../appuser/walletOrder/walletOrder';
 import { TradeOrderPage } from '../appuser/tradeOrder/tradeOrder';
 import { UserSignPage } from '../appuser/userSign/userSign';
+import { CoinAddressPage } from '../appuser/coinAddress/coinAddress';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { UserSignPage } from '../appuser/userSign/userSign';
         WalletOrderPage,
         TradeOrderPage,
         UserSignPage,
-        BackRechargePage
+        BackRechargePage,
+        CoinAddressPage
     ],
     imports: [
         BrowserModule,
