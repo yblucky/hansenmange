@@ -2,15 +2,7 @@
 <!--搜索区域-->
 <div class="search-box">
       uid: <input [(ngModel)]="find.uid" />
-      手机:<input [(ngModel)]="find.mobile" />
-      钱包类型:<select id =  "sel" [(ngModel)]="find.status">
-            <option  value = "" >全部</option>
-            <option  value = "1" >注册</option>
-            <option  value = "2" >注册成功</option>
-            <option  value = "3" >激活成功</option>
-            <option  value = "4" >待激活（出局后的，可领取奖励）</option>
-            <option  value = "5" >已删除</option>
-          </select>
+      手机:<input [(ngModel)]="find.phone" />
       <button type="button" class="btn btn-primary" (click)='loadData()'>搜索</button>
 </div>
 
