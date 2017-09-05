@@ -39,7 +39,7 @@
                 <td>{{item.link}}</td>
                 <td>{{item.taskType}}</td>
                 <td>{{utils.formatDate(item.createTime,'yyyy-MM-dd HH:mm:ss')}}</td>
-                <td>{{item.status == 2 ? '正常' : '已失效'}}</td>
+                <td>{{item.status == 1 ? '正常' : '已失效'}}</td>
                 <td>
                     <button type="button" *ngIf="item.status==1" (click)="showEditPanel(item)" class="btn btn-info btn-xs">编辑</button>
                     <button type="button" *ngIf="item.status!=0"(click)="showDelPanel(item)" class="btn btn-info btn-xs">删除</button>
