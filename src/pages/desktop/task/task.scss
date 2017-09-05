@@ -6,3 +6,15 @@
   height:30px;
   margin-left: 2px;
 }
+.table{
+  table-layout: fixed;
+  word-break: break-all;
+  word-wrap: break-word; //表格固定布局
+}
+ .award-name{
+   -o-text-overflow:ellipsis;
+   text-overflow:ellipsis;
+   overflow:hidden;
+   white-space:nowrap;
+   width:100%; //超出部分显示省略号
+ }
