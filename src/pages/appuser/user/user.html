@@ -68,7 +68,7 @@
                 <td>{{utils.formatDate(item.createTime,'yyyy-MM-dd HH:mm:ss')}}</td>
                 <td>{{item.statusName}}</td>
                 <td>
-                  <button type="button" *ngIf="item.state!=5"(click)="showEditName(item)" class="btn btn-info btn-xs">编辑姓名</button>
+                  <!-- <button type="button" *ngIf="item.state!=5"(click)="showEditName(item)" class="btn btn-info btn-xs">编辑姓名</button> -->
                   <!-- <button type='button' *ngIf="item.state!=5" (click)='disable(item)' class='btn btn-danger btn-xs'>禁用</button> -->
                   <!-- <button type='button' *ngIf="item.state==5" (click)='disable(item)' class='btn btn-info btn-xs'>启用</button> -->
                   <button type="button" *ngIf="item.state!=5"(click)="deleteItem(item)" class="btn btn-danger btn-xs">删除</button>
