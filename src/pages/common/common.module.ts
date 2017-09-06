@@ -22,6 +22,7 @@ import { UserPage } from '../appuser/user/user';
 import { BankCardPage } from '../appuser/bankcard/bankcard';
 import { WalletOrderPage } from '../appuser/walletOrder/walletOrder';
 import { TradeOrderPage } from '../appuser/tradeOrder/tradeOrder';
+import { RewardOrderPage } from '../appuser/rewardOrder/rewardOrder';
 import { UserSignPage } from '../appuser/userSign/userSign';
 import { CoinAddressPage } from '../appuser/coinAddress/coinAddress';
 
@@ -42,7 +43,8 @@ import { CoinAddressPage } from '../appuser/coinAddress/coinAddress';
         TradeOrderPage,
         UserSignPage,
         BackRechargePage,
-        CoinAddressPage
+        CoinAddressPage,
+        RewardOrderPage
     ],
     imports: [
         BrowserModule,

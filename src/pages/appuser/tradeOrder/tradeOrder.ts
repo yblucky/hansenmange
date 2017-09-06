@@ -19,6 +19,7 @@ export class TradeOrderPage {
       nickName:"",
       name:"",
       status:"",
+      tradeOrderType:"",
       cardGrade:""
     };
     upUser:any={};
@@ -37,7 +38,7 @@ export class TradeOrderPage {
     */
     loadData(){
         this.httpService.pagination({
-            url:'/tradeOrder/list',
+            url:'/tradeOrder/orderlist',
             data:this.find
         });
     }

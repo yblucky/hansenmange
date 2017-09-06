@@ -1,7 +1,7 @@
 
 <!--搜索区域-->
 <div class="search-box">
-      <!-- uid: <input [(ngModel)]="find.uid" />
+      uid: <input [(ngModel)]="find.uid" />
       手机:<input [(ngModel)]="find.mobile" />
       昵称:<input [(ngModel)]="find.nickName"/>
       姓名:<input [(ngModel)]="find.name"/>
@@ -10,7 +10,7 @@
             <option  value = "1" >注册</option>
             <option  value = "2" >注册成功</option>
             <option  value = "3" >激活成功</option>
-            <option  value = "4" >待激活（出局后的，可领取奖励）</option>
+            <option  value = "4" >待激活</option>
             <option  value = "5" >已删除</option>
           </select>
       信用:<select id = "sel"  [(ngModel)]="find.cardGrade">
@@ -21,7 +21,7 @@
             <option  value = "4">四星</option>
             <option  value = "5">五星</option>
           </select>
-      <button type="button" class="btn btn-primary" (click)='loadData()'>搜索</button> -->
+      <button type="button" class="btn btn-primary" (click)='loadData()'>搜索</button>
 </div>
 
 <!--按钮区域-->
