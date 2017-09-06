@@ -12,6 +12,7 @@ import { MainPage } from './main/main';
 import { HomePage } from '../desktop/home/home';
 import { TaskPage } from '../desktop/task/task';
 import { BackRechargePage } from '../desktop/backRecharge/backRecharge';
+import { StatisticsAmountPage } from '../desktop/statisticsAmount/statisticsAmount';
 //系统管理
 import { ParameterPage } from '../system/parameter/parameter';
 import { UserInfoPage } from '../system/userInfo/userInfo';
@@ -44,7 +45,8 @@ import { CoinAddressPage } from '../appuser/coinAddress/coinAddress';
         UserSignPage,
         BackRechargePage,
         CoinAddressPage,
-        RewardOrderPage
+        RewardOrderPage,
+        StatisticsAmountPage
     ],
     imports: [
         BrowserModule,

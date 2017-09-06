@@ -3,6 +3,7 @@ import { Routes } from "@angular/router";
 import { HomePage } from '../desktop/home/home';
 import { TaskPage } from '../desktop/task/task';
 import { BackRechargePage } from '../desktop/backRecharge/backRecharge';
+import { StatisticsAmountPage } from '../desktop/statisticsAmount/statisticsAmount';
 
 
 import { ParameterPage } from '../system/parameter/parameter';
@@ -30,6 +31,9 @@ export const MainRoutes: Routes = [ // Routes类型的数组
     },{
         path     : 'desktop/backRecharge',//管理后台充值
         component: BackRechargePage
+    },{
+        path     : 'desktop/statisticsAmount',//统计收益
+        component: StatisticsAmountPage
     },{
         path     : 'system/parameter',//参数管理
         component: ParameterPage
