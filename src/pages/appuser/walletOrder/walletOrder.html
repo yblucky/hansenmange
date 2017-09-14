@@ -2,27 +2,15 @@
 <!--搜索区域-->
 <div class="search-box">
       订单号：<input [(ngModel)]="find.orderNo" />
-      <!-- 手机:<input [(ngModel)]="find.mobile" />
-      昵称:<input [(ngModel)]="find.nickName"/>
+      <!-- 收款用户手机号:<input [(ngModel)]="find.mobile" /> -->
+      收款用户UID:<input [(ngModel)]="find.uid" />
+      <!--昵称:<input [(ngModel)]="find.nickName"/>
       姓名:<input [(ngModel)]="find.name"/> -->
-      状态：<select id =  "sel" [(ngModel)]="find.status">
-            <option  value = "" selected="selected">全部</option>
-            <option  value = "1" >待审核</option>
-            <option  value = "2" >审核成功，待确认</option>
-            <option  value = "3" >审核失败</option>
-            <option  value = "4" >交易成功</option>
-          </select>
       交易类型：<select id = "sel"  [(ngModel)]="find.currencyType">
             <option  value = "" selected="selected">全部</option>
             <option  value = "1">交易币内部转账</option>
-            <option  value = "2">交易币提币</option>
-            <option  value = "3">交易币充币</option>
             <option  value = "4">支付币内部转账</option>
-            <option  value = "5">支付币提币</option>
-            <option  value = "6">股权币充币</option>
             <option  value = "7">股权币内部转账</option>
-            <option  value = "8">股权币提币</option>
-            <option  value = "9">支付币充币</option>
           </select>
       <button type="button" class="btn btn-primary" (click)='loadData()'>搜索</button>
 </div>
@@ -37,50 +25,37 @@
     <table class="table table-bordered table-hover">
         <thead>
             <tr class="active">
-                <th>序号</th>
                 <th>订单号</th>
-                <th>赠送用户id</th>
-                <th>收款用户id</th>
-                <th>交易金额</th>
-                <th>实际到账金额</th>
-                <th>手续费</th>
+                <th>付款UID</th>
+                <th>收款UID</th>
                 <th>交易类型</th>
+                <th>金额</th>
+                <th>实际到账</th>
+                <!-- <th>手续费</th> -->
                 <th>交易时间</th>
                 <th>状态</th>
-                <th>操作</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let item of httpService.items; let i = index">
-                <td>{{(i+1)}}</td>
                 <td>{{item.orderNo}}</td>
                 <td>{{item.sendUserId}}</td>
                 <td>{{item.receviceUserId}}</td>
-                <td>{{item.amount}}</td>
-                <td>{{item.confirmAmt}}</td>
-                <td>{{item.poundage}}</td>
                 <td>
                   <span *ngIf="item.orderType==1">交易币内部转账</span>
-                  <span *ngIf="item.orderType==2">交易币提币</span>
-                  <span *ngIf="item.orderType==3">交易币充币</span>
                   <span *ngIf="item.orderType==4">支付币内部转账</span>
-                  <span *ngIf="item.orderType==5">支付币提币</span>
-                  <span *ngIf="item.orderType==6">股权币充币</span>
                   <span *ngIf="item.orderType==7">股权币内部转账</span>
-                  <span *ngIf="item.orderType==8">股权币提币</span>
-                  <span *ngIf="item.orderType==9">支付币充币</span>
+                  <span *ngIf="item.orderType==10">交易币管理员充值</span>
+                  <span *ngIf="item.orderType==11">购物币管理员充值</span>
+                  <span *ngIf="item.orderType==12">股权币管理员充值</span>
                 </td>
+                <td>{{-item.amount}}</td>
+                <td>{{-item.confirmAmt}}</td>
+                <!-- <td>{{item.poundage}}</td> -->
                 <td>{{utils.formatDate(item.createTime,'yyyy-MM-dd HH:mm:ss')}}</td>
                 <td>
-                  <span *ngIf="item.status==1">待审核</span>
-                  <span *ngIf="item.status==2">审核通过</span>
-                  <span *ngIf="item.status==3">审核不通过</span>
                   <span *ngIf="item.status==4">交易成功</span>
                   <!-- {{item.state!=10?"正常":item.state==20?"禁用":"删除"}}</td> -->
-                <td>
-                  <button type="button" *ngIf="item.status==1" (click)="check(item)" class="btn btn-info btn-xs">审核通过</button>
-                  <button type='button' *ngIf="item.status==1" (click)='unCheck(item)' class='btn btn-danger btn-xs'>审核不通过</button>
-                </td>
             </tr>
         </tbody>
     </table>

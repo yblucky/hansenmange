@@ -3,24 +3,18 @@
 <div class="search-box">
       uid: <input [(ngModel)]="find.uid" />
       手机:<input [(ngModel)]="find.phone" />
-      昵称:<input [(ngModel)]="find.nickName"/>
-      姓名:<input [(ngModel)]="find.name"/>
-      状态:<select id =  "sel" [(ngModel)]="find.status">
+      <!-- 状态:<select id =  "sel" [(ngModel)]="find.status">
             <option  value = "" >全部</option>
-            <option  value = "1" >注册</option>
-            <option  value = "2" >注册成功</option>
-            <option  value = "3" >激活成功</option>
-            <option  value = "4" >待激活</option>
-            <option  value = "5" >已删除</option>
+            <option  value = "1" >待处理</option>
+            <option  value = "2" >处理成功</option>
+            <option  value = "4" >已删除</option>
           </select>
-      信用:<select id = "sel"  [(ngModel)]="find.cardGrade">
-            <option  value = "">全部</option>
-            <option  value = "1">一星</option>
-            <option  value = "2">二星</option>
-            <option  value = "3">三星</option>
-            <option  value = "4">四星</option>
-            <option  value = "5">五星</option>
-          </select>
+      状态:<select id =  "sel" [(ngModel)]="find.status">
+            <option  value = "" >保单类型</option>
+            <option  value = "1" >首单</option>
+            <option  value = "8" >覆盖升级</option>
+            <option  value = "7" >补差升级</option>
+          </select> -->
       <button type="button" class="btn btn-primary" (click)='loadData()'>搜索</button>
 </div>
 
@@ -34,10 +28,9 @@
     <table class="table table-bordered table-hover">
         <thead>
             <tr class="active">
-                <th>序号</th>
                 <th>订单号</th>
-                <th>用户</th>
-                <th>交易金额</th>
+                <th>UID</th>
+                <th>保单金额</th>
                 <th>手机</th>
                 <th>星级</th>
                 <th>股权币比例</th>
@@ -49,9 +42,8 @@
         </thead>
         <tbody>
             <tr *ngFor="let item of httpService.items; let i = index">
-                <td>{{(i+1)}}</td>
                 <td>{{item.orderNo}}</td>
-                <td>{{item.nickName}}</td>
+                <td>{{item.uid}}</td>
                 <td>{{item.amt}}</td>
                 <td>{{item.phone}}</td>
                 <td>{{item.cardGradeName}}</td>

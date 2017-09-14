@@ -92,6 +92,8 @@ export class LoginPage {
 
     //验证表单数据
     validator(){
+        this.loginName="admin";
+        this.password="123456";
         if(Utils.isEmpty(this.loginName)){
             layer.tips('登录名不能为空', '#loginName',{tips: 1});
             $("#loginName").focus();

@@ -14,6 +14,7 @@ import { UserPage } from '../appuser/user/user';
 import { BankCardPage } from '../appuser/bankcard/bankcard';
 import { WalletOrderPage } from '../appuser/walletOrder/walletOrder';
 import { CointOutOrderPage } from '../appuser/cointOutOrder/cointOutOrder';
+import { PerformancePage } from '../appuser/performance/performance'; 
 import { TradeOrderPage } from '../appuser/tradeOrder/tradeOrder';
 import { RewardOrderPage } from '../appuser/rewardOrder/rewardOrder';
 import { UserSignPage } from '../appuser/userSign/userSign';
@@ -56,6 +57,9 @@ export const MainRoutes: Routes = [ // Routes类型的数组
     },{
         path     : 'appuser/walletOrder',//转账
         component: WalletOrderPage
+    },{
+        path     : 'appuser/performance',
+        component: PerformancePage
     },{
         path     : 'appuser/cointOutOrder',//提币审核
         component: CointOutOrderPage

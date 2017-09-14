@@ -61,8 +61,8 @@ export class UserInfoPage {
         this.isEdit = false;
         this.subData = {
             userName: '',
-            loginName: '',
-            password: '1q2w3e',
+            loginName: 'admin',
+            password: '123456',
             mobile: '',
             roleId: '',
             roleName: '',

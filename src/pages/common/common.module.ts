@@ -24,6 +24,7 @@ import { BankCardPage } from '../appuser/bankcard/bankcard';
 import { WalletOrderPage } from '../appuser/walletOrder/walletOrder';
 import { CointOutOrderPage } from '../appuser/cointOutOrder/cointOutOrder';
 import { TradeOrderPage } from '../appuser/tradeOrder/tradeOrder';
+import { PerformancePage } from '../appuser/performance/performance';
 import { RewardOrderPage } from '../appuser/rewardOrder/rewardOrder';
 import { UserSignPage } from '../appuser/userSign/userSign';
 import { CoinAddressPage } from '../appuser/coinAddress/coinAddress';
@@ -48,7 +49,8 @@ import { CoinAddressPage } from '../appuser/coinAddress/coinAddress';
         CoinAddressPage,
         RewardOrderPage,
         StatisticsAmountPage,
-        CointOutOrderPage
+        CointOutOrderPage,
+        PerformancePage
     ],
     imports: [
         BrowserModule,

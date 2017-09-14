@@ -95,7 +95,7 @@ export class TaskPage {
             fixed: true,
             shadeClose: false,
             resize: false,
-            area: ['500px','auto'],
+            area: ['700px','auto'],
             content: $("#editPanel"),
             yes: function(index:number){
                 if(taskPage.validator()){
@@ -138,7 +138,7 @@ export class TaskPage {
               fixed: true,
               shadeClose: false,
               resize: false,
-              area: ['500px','auto'],
+              area: ['700px','auto'],
               content: $("#editPanel"),
               yes: function(index:number){
                   if(taskPage.validator()){
@@ -176,7 +176,7 @@ export class TaskPage {
             fixed: true,
             shadeClose: true,
             resize: false,
-            area: ['800px','700px'],
+            area: ['800px','500px'],
             content: $("#editPanel")
         });
     }

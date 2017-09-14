@@ -18,8 +18,7 @@ export class UserSignPage {
       mobile:"",
       nickName:"",
       name:"",
-      status:"",
-      cardGrade:""
+      status:""
     };
     upUser:any={};
     editDate:any={};

@@ -2,31 +2,45 @@
 <!--搜索区域-->
 <div class="search-box">
       uid: <input [(ngModel)]="find.uid" />
-      手机:<input [(ngModel)]="find.mobile" />
+      手机:<input [(ngModel)]="find.phone" />
       昵称:<input [(ngModel)]="find.nickName"/>
-      姓名:<input [(ngModel)]="find.name"/>
+      <!-- 姓名:<input [(ngModel)]="find.name"/> -->
       状态:<select id =  "sel" [(ngModel)]="find.status">
             <option  value = "" >全部</option>
-            <option  value = "1" >注册</option>
+            <option  value = "1" >未选开卡等级</option>
             <option  value = "2" >注册成功</option>
             <option  value = "3" >激活成功</option>
-            <option  value = "4" >待激活（出局后的，可领取奖励）</option>
-            <option  value = "5" >已删除</option>
+            <option  value = "4" >等待保单生效</option>
+            <option  value = "5" >出局</option>
+            <option  value = "6" >已删除</option>
           </select>
-      等级:<select id = "sel"  [(ngModel)]="find.cardGrade">
+      开卡等级:<select id = "sel"  [(ngModel)]="find.cardGrade">
             <option  value = "">全部</option>
-            <option  value = "1">一星</option>
-            <option  value = "2">二星</option>
-            <option  value = "3">三星</option>
-            <option  value = "4">四星</option>
-            <option  value = "5">五星</option>
+            <option  value = "1">普卡</option>
+            <option  value = "2">铜卡</option>
+            <option  value = "3">银卡</option>
+            <option  value = "4">金卡</option>
+            <option  value = "5">钻石卡</option>
+          </select>
+      用户等级:<select id = "sel"  [(ngModel)]="find.grade">
+            <option  value = "">全部</option>
+            <option  value = "0">普通</option>
+            <option  value = "1">专员</option>
+            <option  value = "2">主任</option>
+            <option  value = "3">经理</option>
+            <option  value = "4">区代</option>
+            <option  value = "5">县代</option>
+            <option  value = "6">市代</option>
+            <option  value = "7">省代</option>
+            <option  value = "8">董事</option>
+
           </select>
       <button type="button" class="btn btn-primary" (click)='loadData()'>搜索</button>
 </div>
 
 <!--按钮区域-->
 <div class="button-box text-right">
-      <button type="button" class="btn btn-primary" (click)="showAddPanel()"><span class="fa fa-plus-circle"></span> 注册新用户</button>
+      <!-- <button type="button" class="btn btn-primary" (click)="showAddPanel()"><span class="fa fa-plus-circle"></span> 注册新用户</button> -->
 </div>
 
 <!--数据显示区域-->
@@ -34,7 +48,6 @@
     <table class="table table-bordered table-hover">
         <thead>
             <tr class="active">
-                <th>序号</th>
                 <th>uid</th>
                 <th>昵称</th>
                 <!-- <th>登录账户</th> -->
@@ -44,8 +57,7 @@
                 <th>股权币</th>
                 <th>支付币</th>
                 <th>交易币</th>
-                <th>激活码个数</th>
-                <th>注册码个数</th>
+                <th>消费码个数</th>
                 <th>注册时间</th>
                 <th>状态</th>
                 <th>操作</th>
@@ -53,7 +65,6 @@
         </thead>
         <tbody>
             <tr *ngFor="let item of httpService.items; let i = index">
-                <td>{{(i+1)}}</td>
                 <td>{{item.uid}}</td>
                 <td>{{item.nickName}}</td>
                 <!-- <td>{{item.loginName}}</td> -->
@@ -63,8 +74,7 @@
                 <td>{{item.equityAmt}}</td>
                 <td>{{item.payAmt}}</td>
                 <td>{{item.tradeAmt}}</td>
-                <td>{{item.activeCodeNo}}</td>
-                <td>{{item.registerCodeNo}}</td>
+                <td>{{item.activeCodeNo}}</td> 
                 <td>{{utils.formatDate(item.createTime,'yyyy-MM-dd HH:mm:ss')}}</td>
                 <td>{{item.statusName}}</td>
                 <td>

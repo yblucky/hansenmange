@@ -15,11 +15,12 @@ var userPage: any;
 export class UserPage {
     find:any={
       uid:"",
-      mobile:"",
+      phone:"",
       nickName:"",
       name:"",
       status:"",
-      cardGrade:""
+      cardGrade:null,
+      grade:null
     };
     upUser:any={};
     editDate:any={};

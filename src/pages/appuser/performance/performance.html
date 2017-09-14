@@ -6,15 +6,10 @@
       <!-- 昵称:<input [(ngModel)]="find.nickName"/>
       姓名:<input [(ngModel)]="find.name"/> -->
       状态:<select id =  "sel" [(ngModel)]="find.status">
-            <option  value = "" >全部</option>
-            <option  value = "1" >已领取</option>
-            <option  value = "2" >待领取</option>
-            <option  value = "3" >已失效</option>
+            <option  value = "1" select >查询指定UID</option>
+            <option  value = "2" >查询下属业绩</option>
           </select>
       <button type="button" class="btn btn-primary" (click)='loadData()'>搜索</button>
-      <div class="rate" style="margin-top: 16px;margin-bottom: 26px;font-size: 2.5rem;float: right;color: #2a2aa7;">
-          【A】：1RMB 兑换 A 个币
-      </div>
 </div>
 
 <!--按钮区域-->
@@ -27,32 +22,23 @@
         <thead>
             <tr class="active">
                 <th>UID</th>
-                <th>奖励金额</th>
-                <th>股权币|汇率</th>
-                <th>支付币|汇率</th>
-                <th>交易币|汇率</th>
-                <th>签到时间</th>
-                <th>状态</th>
+                <th>直属UID</th>
+                <th>用户昵称</th>
+                <th>用户等级</th>
+                <th>部门业绩</th>
+                <th>团队业绩</th>
+                <th>创建时间</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let item of httpService.items; let i = index">
                 <td>{{item.uid}}</td>
-                <td>{{item.amt}}</td>
-                <td>
-                  <span>{{item.equityAmt}}</span>
-                  <span>【{{item.rmbCovertEquityScale}}】</span>
-                </td>
-                <td>
-                  <span>{{item.payAmt}}</span>
-                  <span>【{{item.rmbCovertPayAmtScale}}】</span>
-                </td>
-                <td>
-                  <span>{{item.tradeAmt}}</span>
-                  <span>【{{item.rmbCovertTradeAmtScale}}】</span>
-                </td>
-                <td>{{utils.formatDate(item.createTime,'yyyy-MM-dd HH:mm:ss')}}</td>
+                <td>{{item.parentUserId}}</td>
+                <td>{{item.nickName}}</td>
                 <td>{{item.remark}}</td>
+                <td>{{item.performance}}</td>
+                <td>{{item.teamPerformance}}</td>
+                <td>{{utils.formatDate(item.createTime,'yyyy-MM-dd HH:mm:ss')}}</td>
             </tr>
         </tbody>
     </table>
@@ -75,14 +61,4 @@
             <a href="javascript:;" (click)="httpService.toEndPage()">末页</a>
         </li>
     </ul>
-</div>
-
-<!--编辑页面-->
-<div id="editPanel" class="form-horizontal">
-    <div class="form-group">
-        <label class="col-sm-4 control-label"><span class="text-danger">*</span>&nbsp;姓名</label>
-        <div class="col-sm-8">
-            <input type="text" class="form-control" id="name" [(ngModel)]="editDate.name" placeholder="请输入姓名"/>
-        </div>
-    </div>
 </div>

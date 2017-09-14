@@ -8,19 +8,17 @@ declare var layer: any;
 var userPage: any;
 
 @Component({
-    selector   : 'page-tradeOrder',
-    templateUrl: './tradeOrder.html',
-    styleUrls: ['./tradeOrder.scss']
+    selector   : 'page-performance',
+    templateUrl: './performance.html',
+    styleUrls: ['./performance.scss']
 })
-export class TradeOrderPage {
+export class PerformancePage {
     find:any={
       uid:"",
-      phone:"",
+      mobile:"",
       nickName:"",
       name:"",
-      status:"",
-      tradeOrderType:"",
-      cardGrade:""
+      status:""
     };
     upUser:any={};
     editDate:any={};
@@ -38,7 +36,7 @@ export class TradeOrderPage {
     */
     loadData(){
         this.httpService.pagination({
-            url:'/tradeOrder/orderlist',
+            url:'/performance/list',
             data:this.find
         });
     }
