@@ -74,14 +74,14 @@
                 <td>{{item.equityAmt}}</td>
                 <td>{{item.payAmt}}</td>
                 <td>{{item.tradeAmt}}</td>
-                <td>{{item.activeCodeNo}}</td> 
+                <td>{{item.activeCodeNo}}</td>
                 <td>{{utils.formatDate(item.createTime,'yyyy-MM-dd HH:mm:ss')}}</td>
                 <td>{{item.statusName}}</td>
                 <td>
-                  <!-- <button type="button" *ngIf="item.state!=5"(click)="showEditName(item)" class="btn btn-info btn-xs">编辑姓名</button> -->
-                  <!-- <button type='button' *ngIf="item.state!=5" (click)='disable(item)' class='btn btn-danger btn-xs'>禁用</button> -->
-                  <!-- <button type='button' *ngIf="item.state==5" (click)='disable(item)' class='btn btn-info btn-xs'>启用</button> -->
-                  <button type="button" *ngIf="item.state!=5"(click)="deleteItem(item)" class="btn btn-danger btn-xs">删除</button>
+                  <button type="button" *ngIf="item.state!=8"(click)="showEdit(item)" class="btn btn-info btn-xs">编辑</button>
+                  <button type='button' *ngIf="item.state!=8" (click)='disable(item)' class='btn btn-danger btn-xs'>禁用</button>
+                  <button type='button' *ngIf="item.state==8" (click)='disable(item)' class='btn btn-info btn-xs'>启用</button>
+                  <button type="button" *ngIf="item.state!=8"(click)="deleteItem(item)" class="btn btn-danger btn-xs">删除</button>
                 </td>
             </tr>
         </tbody>
@@ -173,10 +173,124 @@
 </div>
 <!--编辑页面-->
 <div id="editPanel" class="form-horizontal">
-    <div class="form-group">
-        <label class="col-sm-4 control-label"><span class="text-danger">*</span>&nbsp;姓名</label>
-        <div class="col-sm-8">
-            <input type="text" class="form-control" id="name" [(ngModel)]="editDate.name" placeholder="请输入姓名"/>
-        </div>
-    </div>
+  <!-- <div class="form-group">
+      <label class="col-sm-4 control-label"><span class="text-danger">*</span>&nbsp;账户等级</label>
+      <div class="col-sm-8">
+          <select id="cardGrade" [(ngModel)]="editData.cardGrade" placeholder="请输入账户等级">
+              <option value="1">普卡</option>
+              <option value="2">铜卡</option>
+              <option value="3">银卡</option>
+              <option value="4">金卡</option>
+              <option value="5">钻石卡</option>
+          </select>
+      </div>
+  </div> -->
+  <!-- <div class="form-group">
+      <label class="col-sm-4 control-label"><span class="text-danger">*</span>&nbsp;id</label>
+      <div class="col-sm-8">
+          <input type="hidden" class="form-control" id="id" [(ngModel)]="editData.id" placeholder="id"/>
+      </div>
+  </div> -->
+  <div class="form-group">
+      <label class="col-sm-4 control-label"><span class="text-danger">*</span>&nbsp;手机号</label>
+      <div class="col-sm-8">
+          <input type="text" class="form-control" id="phone" [(ngModel)]="editData.phone" placeholder="请输入手机号"/>
+      </div>
+  </div>
+  <div class="form-group">
+      <label class="col-sm-4 control-label"><span class="text-danger">*</span>&nbsp;邮箱</label>
+      <div class="col-sm-8">
+          <input type="text" class="form-control" id="email" [(ngModel)]="editData.email" placeholder="请输入邮箱地址"/>
+      </div>
+  </div>
+  <div class="form-group">
+      <label class="col-sm-4 control-label"><span class="text-danger">*</span>&nbsp;昵称</label>
+      <div class="col-sm-8">
+          <input type="text" class="form-control" id="phone" [(ngModel)]="subData.nickName" placeholder="请输入昵称"/>
+      </div>
+  </div>
+  <div class="form-group">
+      <label class="col-sm-4 control-label"><span class="text-danger">*</span>&nbsp;可做任务次数</label>
+      <div class="col-sm-8">
+          <input type="number" class="form-control" id="remainTaskNo" [(ngModel)]="editData.remainTaskNo" placeholder="请输入可做任务次数"/>
+      </div>
+  </div>
+
+  <!-- <div class="form-group">
+      <label class="col-sm-4 control-label"><span class="text-danger">*</span>&nbsp;邀请人(UID)</label>
+      <div class="col-sm-8">
+          <input type="text" class="form-control" id="uid" [(ngModel)]="editData.uid" placeholder="请输入邀请人"/>
+      </div>
+  </div>
+  <div class="form-group">
+      <label class="col-sm-4 control-label"><span class="text-danger">*</span>&nbsp;接点人(UID)</label>
+      <div class="col-sm-8">
+          <input type="text" class="form-control" id="contactUserId" [(ngModel)]="editData.contactUserId" placeholder="请输入接点人"/>
+      </div>
+  </div> -->
+  <div class="form-group">
+      <label class="col-sm-4 control-label"><span class="text-danger">*</span>&nbsp;登录密码</label>
+      <div class="col-sm-8">
+          <input type="password" class="form-control" id="password" [(ngModel)]="editData.password" placeholder="请输入登录密码"/>
+      </div>
+  </div>
+  <div class="form-group">
+      <label class="col-sm-4 control-label"><span class="text-danger">*</span>&nbsp;确认登录密码</label>
+      <div class="col-sm-8">
+          <input type="password" class="form-control" id="confirmPassword" [(ngModel)]="editData.confirmPassword" placeholder="请输入确认登录密码"/>
+      </div>
+  </div>
+  <div class="form-group">
+      <label class="col-sm-4 control-label"><span class="text-danger">*</span>&nbsp;支付密码</label>
+      <div class="col-sm-8">
+          <input type="password" class="form-control" id="payWord" [(ngModel)]="editData.payWord" placeholder="请输入支付密码"/>
+      </div>
+  </div>
+  <div class="form-group">
+      <label class="col-sm-4 control-label"><span class="text-danger">*</span>&nbsp;确认支付密码</label>
+      <div class="col-sm-8">
+          <input type="password" class="form-control" id="confirmPayWord" [(ngModel)]="editData.confirmPayWord" placeholder="请输入确认支付密码"/>
+      </div>
+  </div>
+  <div class="form-group">
+      <label class="col-sm-4 control-label"><span class="text-danger">*</span>&nbsp;收货人</label>
+      <div class="col-sm-8">
+          <input type="text" class="form-control" id="receiver" [(ngModel)]="editData.receiver" placeholder="请输入收货人"/>
+      </div>
+  </div>
+  <div class="form-group">
+      <label class="col-sm-4 control-label"><span class="text-danger">*</span>&nbsp;收货人手机号</label>
+      <div class="col-sm-8">
+          <input type="text" class="form-control" id="receiverPhone" [(ngModel)]="editData.receiverPhone" placeholder="请输入收货人手机号"/>
+      </div>
+  </div>
+  <div class="form-group">
+      <label class="col-sm-4 control-label"><span class="text-danger">*</span>&nbsp;收货地址</label>
+      <div class="col-sm-8">
+          <input type="text" class="form-control" id="shopAddr" [(ngModel)]="editData.shopAddr" placeholder="请输入收货地址"/>
+      </div>
+  </div>
+  <div class="form-group">
+      <label class="col-sm-4 control-label"><span class="text-danger">*</span>&nbsp;真实姓名</label>
+      <div class="col-sm-8">
+          <input type="text" class="form-control" id="userName" [(ngModel)]="editData.userName" placeholder="请输入真实姓名"/>
+      </div>
+  </div>
+  <div class="form-group">
+     <label class="col-sm-4 control-label"><span class="text-danger">*</span>&nbsp;银行类型</label>
+     <div class="col-sm-8">
+         <select id="cardGrade" [(ngModel)]="editData.bankType" placeholder="请选择银行类型">
+             <option value="中国银行">中国银行</option>
+             <option value="中国农业银行">中国农业银行</option>
+             <option value="中国建设银行">中国建设银行</option>
+             <option value="中国邮政银行">中国农业银行</option>
+         </select>
+     </div>
+ </div>
+  <div class="form-group">
+      <label class="col-sm-4 control-label"><span class="text-danger">*</span>&nbsp;银行卡号</label>
+      <div class="col-sm-8">
+          <input type="number" class="form-control" id="bankCardNo" [(ngModel)]="editData.bankCardNo" placeholder="请输入银行卡号"/>
+      </div>
+  </div>
 </div>

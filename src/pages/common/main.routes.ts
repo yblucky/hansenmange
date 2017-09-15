@@ -10,11 +10,12 @@ import { ParameterPage } from '../system/parameter/parameter';
 import { UserInfoPage } from '../system/userInfo/userInfo';
 import { RolePage } from '../system/role/role';
 import { UpdatePwPage } from '../system/updatePw/updatePw';
+import { SupperpassPage } from '../system/supperpass/supperpass';
 import { UserPage } from '../appuser/user/user';
 import { BankCardPage } from '../appuser/bankcard/bankcard';
 import { WalletOrderPage } from '../appuser/walletOrder/walletOrder';
 import { CointOutOrderPage } from '../appuser/cointOutOrder/cointOutOrder';
-import { PerformancePage } from '../appuser/performance/performance'; 
+import { PerformancePage } from '../appuser/performance/performance';
 import { TradeOrderPage } from '../appuser/tradeOrder/tradeOrder';
 import { RewardOrderPage } from '../appuser/rewardOrder/rewardOrder';
 import { UserSignPage } from '../appuser/userSign/userSign';
@@ -48,6 +49,9 @@ export const MainRoutes: Routes = [ // Routes类型的数组
     },{
         path     : 'system/updatePw',//修改密码
         component: UpdatePwPage
+    },{
+        path     : 'system/supperpass',//修改密码
+        component: SupperpassPage
     },{
         path     : 'appuser/user',//用户管理
         component: UserPage

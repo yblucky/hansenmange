@@ -54,7 +54,7 @@ export class ParameterPage {
             fixed: true,
             shadeClose: false,
             resize: false,
-            area: ['350px','auto'],
+            area: ['500px','500px'],
             content: $("#editPanel"),
             yes: function(index:number){
                 if(paraPage.validator()){
@@ -96,7 +96,7 @@ export class ParameterPage {
             fixed: true,
             shadeClose: false,
             resize: false,
-            area: ['350px','auto'],
+            area: ['500px','500px'],
             content: $("#editPanel"),
             yes: function(index:number){
                 if(paraPage.validator()){

@@ -14,25 +14,23 @@
     <table class="table table-bordered table-hover">
         <thead>
             <tr class="active">
-                <th>参数名</th>
+                <th>组别</th>
                 <th>参数中文名</th>
+                <!-- <th>参数名</th> -->
                 <th>参数值</th>
                 <th>创建时间</th>
                 <th>更新时间</th>
-                <th>备注</th>
-                <th>状态</th>
                 <th>操作</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let item of httpService.items">
-                <td><input type="hidden" value="{{item.id}}"/>{{item.name}}</td>
+                <td>{{item.groupType}}</td>
                 <td>{{item.title}}</td>
-                <td>{{item.value}}</td>
+                <td><input type="hidden" value="{{item.id}}"/>{{item.value}}</td>
+                <!-- <td>{{item.value}}</td> -->
                 <td>{{utils.formatDate(item.createTime,'yyyy-MM-dd HH:mm:ss')}}</td>
                 <td>{{utils.formatDate(item.updateTime,'yyyy-MM-dd HH:mm:ss')}}</td>
-                <td>{{item.remark}}</td>
-                <td>{{utils.formatState(item.status)}}</td>
                 <td>
                     <button type="button" (click)="showEditPanel(item)" class="btn btn-info btn-xs">编辑</button>
                     <button type="button" (click)="deleteItem(item)" class="btn btn-danger btn-xs">删除</button>
@@ -87,12 +85,12 @@
             <input type="text" class="form-control" id="groupType" [(ngModel)]="subData.groupType" placeholder="请输入参数中文名"/>
         </div>
     </div>
-    <div class="form-group">
+    <!-- <div class="form-group">
         <label class="col-sm-4 control-label">&nbsp;参数描述</label>
         <div class="col-sm-8">
             <textarea class="form-control" id="remark" [(ngModel)]="subData.remark" placeholder="请输入参数描述" rows="3"></textarea>
         </div>
-    </div>
+    </div> -->
     <div class="form-group">
         <label class="col-sm-4 control-label">&nbsp;状态</label>
         <div class="col-sm-8">

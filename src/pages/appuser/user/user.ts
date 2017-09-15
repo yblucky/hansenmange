@@ -23,7 +23,7 @@ export class UserPage {
       grade:null
     };
     upUser:any={};
-    editDate:any={};
+    editData:any={};
     showTime:any = new Date();
     subData:any={};
     constructor(private router:Router,private httpService:HttpService,private aroute:ActivatedRoute,private utils:Utils) {
@@ -46,16 +46,9 @@ export class UserPage {
 
     disable(item:any){
       this.upUser.id=item.id;
-      if(item.state==10){
-        this.upUser.state=20
-      }else if(item.state==20){
-        this.upUser.state=10
-      }else{
-        alert("用户状态错误");
-        return false;
-      }
+      this.upUser.status=8;
       this.httpService.post({
-          url:'/appUser/upUserState',
+          url:'/muser/delete',
           data:this.upUser
       }).subscribe((data:any)=>{
           alert(data.code);
@@ -76,10 +69,7 @@ export class UserPage {
       }, function(){
           var upUser:any={};
           upUser.id=item.id;
-          if(item.status==3||item.status==4){
-            alert("用户激活或正在保单中");
-            return false;
-          }
+          this.upUser.status=7;
           userPage.httpService.post({
               url:'/muser/delete',
               data:upUser
@@ -105,10 +95,11 @@ export class UserPage {
     /**
     * 弹出编辑面板
     */
-    showEditName(item:any){
-        this.editDate = Utils.copyObject(item);
+    showEdit(item:any){
+        this.editData = Utils.copyObject(item);
+        // console.log("999999999999  "+JSON.stringify(this.editData));
         layer.open({
-            title: "修改参数",
+            title: "修改用户信息",
             btn: ["保存","退出"],
             type: 1,
             closeBtn: 0,
@@ -116,17 +107,12 @@ export class UserPage {
             fixed: true,
             shadeClose: false,
             resize: false,
-            area: ['350px','auto'],
+            area: ['600px','700px'],
             content: $("#editPanel"),
             yes: function(index:number){
-              if(Utils.isEmpty(userPage.editDate.name)){
-                  layer.tips('姓名不能为空', '#name',{tips: 1});
-                  $("#name").focus();
-                  return false;
-              }
               userPage.httpService.post({
-                  url:'/appUser/upUserName',
-                  data:userPage.editDate
+                  url:'/muser/update',
+                  data:userPage.editData
               }).subscribe((data:any)=>{
                   layer.closeAll();
                   if(data.code==='0000'){

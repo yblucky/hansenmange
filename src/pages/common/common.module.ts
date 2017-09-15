@@ -18,6 +18,7 @@ import { ParameterPage } from '../system/parameter/parameter';
 import { UserInfoPage } from '../system/userInfo/userInfo';
 import { RolePage } from '../system/role/role';
 import { UpdatePwPage } from '../system/updatePw/updatePw';
+import { SupperpassPage } from '../system/supperpass/supperpass';
 //用户管理
 import { UserPage } from '../appuser/user/user';
 import { BankCardPage } from '../appuser/bankcard/bankcard';
@@ -39,6 +40,7 @@ import { CoinAddressPage } from '../appuser/coinAddress/coinAddress';
         UserInfoPage,
         RolePage,
         UpdatePwPage,
+        SupperpassPage,
         TaskPage,
         UserPage,
         BankCardPage,
