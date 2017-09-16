@@ -11,8 +11,9 @@
             <option  value = "2" >注册成功</option>
             <option  value = "3" >激活成功</option>
             <option  value = "4" >等待保单生效</option>
-            <option  value = "5" >出局</option>
-            <option  value = "6" >已删除</option>
+            <option  value = "6" >出局</option>
+            <option  value = "8" >禁用</option>
+            <option  value = "7" >已删除</option>
           </select>
       开卡等级:<select id = "sel"  [(ngModel)]="find.cardGrade">
             <option  value = "">全部</option>
@@ -78,10 +79,10 @@
                 <td>{{utils.formatDate(item.createTime,'yyyy-MM-dd HH:mm:ss')}}</td>
                 <td>{{item.statusName}}</td>
                 <td>
-                  <button type="button" *ngIf="item.state!=8"(click)="showEdit(item)" class="btn btn-info btn-xs">编辑</button>
-                  <button type='button' *ngIf="item.state!=8" (click)='disable(item)' class='btn btn-danger btn-xs'>禁用</button>
-                  <button type='button' *ngIf="item.state==8" (click)='disable(item)' class='btn btn-info btn-xs'>启用</button>
-                  <button type="button" *ngIf="item.state!=8"(click)="deleteItem(item)" class="btn btn-danger btn-xs">删除</button>
+                  <button type="button" *ngIf="item.status!=8"(click)="showEdit(item)" class="btn btn-info btn-xs">编辑</button>
+                  <button type='button' *ngIf="item.status!=8" (click)='disable(item)' class='btn btn-danger btn-xs'>禁用</button>
+                  <button type='button' *ngIf="item.status==8" (click)='enable(item)' class='btn btn-info btn-xs'>启用</button>
+                  <button type="button" *ngIf="item.status!=8"(click)="deleteItem(item)" class="btn btn-danger btn-xs">删除</button>
                 </td>
             </tr>
         </tbody>
@@ -208,7 +209,7 @@
       <div class="col-sm-8">
           <input type="text" class="form-control" id="phone" [(ngModel)]="subData.nickName" placeholder="请输入昵称"/>
       </div>
-  </div>  
+  </div>
   <!-- <div class="form-group">
       <label class="col-sm-4 control-label"><span class="text-danger">*</span>&nbsp;可做任务次数</label>
       <div class="col-sm-8">

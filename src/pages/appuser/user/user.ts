@@ -44,6 +44,24 @@ export class UserPage {
         });
     }
 
+    enable(item:any){
+      this.upUser.id=item.id;
+      this.upUser.status=100;
+      this.httpService.post({
+          url:'/muser/delete',
+          data:this.upUser
+      }).subscribe((data:any)=>{
+          if(data.code==='0000'){
+              //修改成功
+             this.loadData();
+          }else if(data.code==='9999'){
+              Utils.show(data.message);
+          }else{
+              Utils.show("系统异常，请联系管理员");
+          }
+      });
+    }
+
     disable(item:any){
       this.upUser.id=item.id;
       this.upUser.status=8;
@@ -51,7 +69,6 @@ export class UserPage {
           url:'/muser/delete',
           data:this.upUser
       }).subscribe((data:any)=>{
-          alert(data.code);
           if(data.code==='0000'){
               //修改成功
              this.loadData();
@@ -67,12 +84,10 @@ export class UserPage {
       layer.confirm('删除为不可逆操作,您确定要删除此数据吗？', {
           btn: ['确定','取消'] //按钮
       }, function(){
-          var upUser:any={};
-          upUser.id=item.id;
-          this.upUser.status=7;
+          var postData={id:item.id,status:7}; 
           userPage.httpService.post({
               url:'/muser/delete',
-              data:upUser
+              data:postData
           }).subscribe((data:any)=>{
               layer.closeAll();
               if(data.code==='0000'){
