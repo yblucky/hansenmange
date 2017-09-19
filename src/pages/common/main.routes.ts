@@ -14,12 +14,15 @@ import { SupperpassPage } from '../system/supperpass/supperpass';
 import { UserPage } from '../appuser/user/user';
 import { BankCardPage } from '../appuser/bankcard/bankcard';
 import { WalletOrderPage } from '../appuser/walletOrder/walletOrder';
+import { CodeOrderPage } from '../appuser/codeOrder/codeOrder';
 import { CointOutOrderPage } from '../appuser/cointOutOrder/cointOutOrder';
 import { PerformancePage } from '../appuser/performance/performance';
 import { TradeOrderPage } from '../appuser/tradeOrder/tradeOrder';
 import { RewardOrderPage } from '../appuser/rewardOrder/rewardOrder';
 import { UserSignPage } from '../appuser/userSign/userSign';
 import { CoinAddressPage } from '../appuser/coinAddress/coinAddress';
+import { FeedBackPage } from '../appuser/feedBack/feedBack';
+
 
 export const MainRoutes: Routes = [ // Routes类型的数组
     {
@@ -47,25 +50,31 @@ export const MainRoutes: Routes = [ // Routes类型的数组
         path     : 'system/role',//权限管理
         component: RolePage
     },{
-        path     : 'system/updatePw',//修改密码
+        path     : 'system/updatePw',
         component: UpdatePwPage
     },{
-        path     : 'system/supperpass',//修改密码
+        path     : 'system/supperpass',
         component: SupperpassPage
     },{
-        path     : 'appuser/user',//用户管理
+        path     : 'appuser/user',
         component: UserPage
     },{
-        path     : 'appuser/bankcard',//银行卡管理
+        path     : 'appuser/feedBack',
+        component: FeedBackPage
+    },{
+        path     : 'appuser/bankcard',
         component: BankCardPage
     },{
-        path     : 'appuser/walletOrder',//转账
+        path     : 'appuser/walletOrder',
         component: WalletOrderPage
+    },{
+        path     : 'appuser/codeOrder',
+        component: CodeOrderPage
     },{
         path     : 'appuser/performance',
         component: PerformancePage
     },{
-        path     : 'appuser/cointOutOrder',//提币审核
+        path     : 'appuser/cointOutOrder',
         component: CointOutOrderPage
     },{
         path     : 'appuser/tradeOrder',

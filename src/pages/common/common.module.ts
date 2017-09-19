@@ -23,13 +23,14 @@ import { SupperpassPage } from '../system/supperpass/supperpass';
 import { UserPage } from '../appuser/user/user';
 import { BankCardPage } from '../appuser/bankcard/bankcard';
 import { WalletOrderPage } from '../appuser/walletOrder/walletOrder';
+import { CodeOrderPage } from '../appuser/codeOrder/codeOrder';
 import { CointOutOrderPage } from '../appuser/cointOutOrder/cointOutOrder';
 import { TradeOrderPage } from '../appuser/tradeOrder/tradeOrder';
 import { PerformancePage } from '../appuser/performance/performance';
 import { RewardOrderPage } from '../appuser/rewardOrder/rewardOrder';
 import { UserSignPage } from '../appuser/userSign/userSign';
 import { CoinAddressPage } from '../appuser/coinAddress/coinAddress';
-
+import { FeedBackPage } from '../appuser/feedBack/feedBack';
 
 @NgModule({
     declarations: [
@@ -52,7 +53,9 @@ import { CoinAddressPage } from '../appuser/coinAddress/coinAddress';
         RewardOrderPage,
         StatisticsAmountPage,
         CointOutOrderPage,
-        PerformancePage
+        PerformancePage,
+        CodeOrderPage,
+        FeedBackPage 
     ],
     imports: [
         BrowserModule,

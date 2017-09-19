@@ -1,44 +1,40 @@
 
 <!--搜索区域-->
 <div class="search-box">
-      uid: <input [(ngModel)]="find.uid" />
-      手机:<input [(ngModel)]="find.mobile" />
-      <!-- 昵称:<input [(ngModel)]="find.nickName"/>
-      姓名:<input [(ngModel)]="find.name"/> -->
-      类型:<select id =  "sel" [(ngModel)]="find.status">
-            <option  value = "1" select >查询指定UID</option>
-            <option  value = "2" >查询下属业绩</option>
-          </select>
+      <!-- 收款用户手机号:<input [(ngModel)]="find.mobile" /> -->
+      付款用户UID:<input [(ngModel)]="find.suid" />
+      收款用户UID:<input [(ngModel)]="find.ruid" />
       <button type="button" class="btn btn-primary" (click)='loadData()'>搜索</button>
 </div>
 
 <!--按钮区域-->
-<!-- <div class="button-box text-right">
+<div class="button-box text-right">
 
-</div>  -->
+</div>
+
 <!--数据显示区域-->
 <div class="table-box">
     <table class="table table-bordered table-hover">
         <thead>
             <tr class="active">
-                <th>UID</th>
-                <th>直属UID</th>
-                <th>用户昵称</th>
-                <th>用户等级</th>
-                <th>部门业绩</th>
-                <th>团队业绩</th>
-                <th>创建时间</th>
+                <th>付款UID</th>
+                <th>收款UID</th>
+                <th>消费码个数</th>
+                <!-- <th>手续费</th> -->
+                <th>交易时间</th>
+                <th>状态</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let item of httpService.items; let i = index">
-                <td>{{item.uid}}</td>
-                <td>{{item.parentUserId}}</td>
-                <td>{{item.nickName}}</td>
-                <td>{{item.remark}}</td>
-                <td>{{item.performance}}</td>
-                <td>{{item.teamPerformance}}</td>
+                <td>{{item.sendUserId}}</td>
+                <td>{{item.receviceUserId}}</td>
+                <td>{{-item.transferNo}}</td>
+                <!-- <td>{{item.poundage}}</td> -->
                 <td>{{utils.formatDate(item.createTime,'yyyy-MM-dd HH:mm:ss')}}</td>
+                <td>
+                  <span *ngIf="item.status==1">成功</span>
+                </td>
             </tr>
         </tbody>
     </table>
