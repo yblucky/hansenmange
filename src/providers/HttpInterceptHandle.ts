@@ -1,6 +1,3 @@
-/**
- * Created by qsy on 2017-05-12.
- */
 import {Injectable} from '@angular/core';
 import {Utils} from "./Utils";
 import {RequestOptionsArgs} from '@angular/http';

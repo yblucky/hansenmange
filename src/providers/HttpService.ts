@@ -1,6 +1,3 @@
-/**
- * Created by qsy on 2017-05-12.
- */
 import {Injectable} from '@angular/core';
 import {Http, Response, Headers, RequestOptions, URLSearchParams, RequestOptionsArgs} from '@angular/http';
 import 'rxjs/add/operator/toPromise';

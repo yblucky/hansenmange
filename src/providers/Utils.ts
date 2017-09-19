@@ -1,6 +1,3 @@
-/**
- * Created by qsy on 2017-05-12.
- */
 import {Injectable} from '@angular/core';
 
 declare var $: any;//Jquery对象
@@ -17,7 +14,7 @@ export class Utils {
     static APP_SERVE_URL = 'http://mh.6pyun.com/web';//请求路径 dev环境 -->
     // static APP_SERVE_URL = '/api';//请求路径 prod环境
     static DEFAULT_AVATAR = '/assets/images/avatar.png';//用户默认头像
-    static FILE_SERVE_URL = 'http://dev.sutongbao.file.yb.com/';//文件服务器访问路径
+    static FILE_SERVE_URL = '';//文件服务器访问路径
     static PAGE_SIZE = 15;//默认分页大小
 
     constructor() {
