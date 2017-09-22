@@ -165,17 +165,7 @@ export class BackRechargePage {
             layer.tips('超级密码不 能为空', '#supperPass',{tips: 1});
             $("#supperPass").focus();
             return false;
-        }
-        // if(Utils.isEmpty(this.subData.taskType)){
-        //     layer.tips('任务类型不能为空', '#taskType',{tips: 1});
-        //     $("#value").focus();
-        //     return false;
-        // }
-        // if(Utils.isEmpty(this.subData.link)){
-        //     layer.tips('任务链接不能为空', '#link',{tips: 1});
-        //     $("#title").focus();
-        //     return false;
-        // }
+        } 
         return true;
     }
 }

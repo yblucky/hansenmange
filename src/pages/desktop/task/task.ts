@@ -80,11 +80,12 @@ export class TaskPage {
         this.subData = {
             name: '',
             discription: '',
-            rewardNo:'',
-            link: '',
+            // rewardNo:'',
+            // link: '',
             taskType: '',
             remark: '',
-            status: '1'
+            status: '1',
+            linkImgPath:''
         };
         layer.open({
             title: "添加任务清单",
@@ -184,18 +185,13 @@ export class TaskPage {
 
     validator(){
         if(Utils.isEmpty(this.subData.name)){
-            layer.tips('任务标题不能为空', '#name',{tips: 1});
+            layer.tips('任务标题不能为空', '#names',{tips: 1});
             $("#name").focus();
             return false;
         }
         if(Utils.isEmpty(this.subData.taskType)){
             layer.tips('任务类型不能为空', '#taskType',{tips: 1});
             $("#value").focus();
-            return false;
-        }
-        if(Utils.isEmpty(this.subData.link)){
-            layer.tips('任务链接不能为空', '#link',{tips: 1});
-            $("#title").focus();
             return false;
         }
         return true;
